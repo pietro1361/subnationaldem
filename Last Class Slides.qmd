@@ -1,0 +1,33 @@
+---
+title: "Class Presentation"
+author: "Pietro Zecca"
+format: beamer
+---
+
+
+
+```{r}
+# libraries
+library(tidyverse)
+
+# data
+load('SDI.RData')
+
+# limit to CORDOBA, ARG
+df <-
+  data_sdi%>%
+  filter(region_name == 'CENTRO')
+
+```
+
+# analysis slide
+
+```{r}
+# graph dem by region over time
+
+df %>%
+  ggplot(aes(x= year, y = SUR_index_sub_exe, color = state_name))+
+  geom_line()+
+  theme_classic()
+
+```
